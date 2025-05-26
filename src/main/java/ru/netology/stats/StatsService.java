@@ -1,20 +1,20 @@
 package ru.netology.stats;
 
 public class StatsService {
-
-        public long TotalSales(long[] sales) {
+        //сумма всех продаж
+        public long totalSales(long[] sales) {
             long total = 0;
             for (int i = 0; i < sales.length; i++) {
                 total += sales[i];
             }
             return total;
         }
-
-        public double AverageSales(long[] sales) {
-            return (double) TotalSales(sales) / sales.length;
+        //средняя сумма продаж
+        public double averageSales(long[] sales) {
+            return (double) totalSales(sales) / sales.length;
         }
-
-        public int MaxSales(long[] sales) {
+        //номер месяца, в котором был пик продаж
+        public int maxSales(long[] sales) {
             int maxMonth = 0;
             long maxValue = sales[0];
 
@@ -26,8 +26,8 @@ public class StatsService {
             }
             return maxMonth + 1;
         }
-
-        public int MinSales(long[] sales) {
+        //номер месяца, в котором был минимум продаж
+        public int minSales(long[] sales) {
             int minMonth = 0;
             long minValue = sales[0];
 
@@ -39,10 +39,10 @@ public class StatsService {
             }
             return minMonth + 1;
         }
-
+        //количество месяцев, в которых продажи были ниже среднего
         public int countMonthsBelowAverage(long[] sales) {
             int count = 0;
-            double average = AverageSales(sales);
+            double average = averageSales(sales);
 
             for (int i=0; i < sales.length; i++ ) {
                 if (sales[i] < average) {
@@ -51,10 +51,10 @@ public class StatsService {
             }
             return count;
         }
-
+        //количество месяцев, в которых продажи были выше среднего
         public int countMonthsAboveAverage(long[] sales) {
             int count = 0;
-            double average = AverageSales(sales);
+            double average = averageSales(sales);
 
             for (int i=0; i < sales.length; i++ ) {
                 if (sales[i] > average) {

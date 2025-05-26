@@ -10,28 +10,28 @@ class StatsServiceTest {
     @Test
     void shouldCalculateTotalSales() {
         long expected = 180;
-        long actual = service.TotalSales(sales);
+        long actual = service.totalSales(sales);
         assertEquals(expected, actual);
     }
 
     @Test
     void shouldCalculateAverageSales() {
         double expected = 180 / 12;
-        double actual = service.AverageSales(sales);
+        double actual = service.averageSales(sales);
         assertEquals(expected, actual);
     }
 
     @Test
     void shouldFindMaxSalesMonth() {
         int expected = 8; // Последний месяц с максимальными продажами (20)
-        int actual = service.MaxSales(sales);
+        int actual = service.maxSales(sales);
         assertEquals(expected, actual);
     }
 
     @Test
     void shouldFindMinSalesMonth() {
         int expected = 9; // Месяц с минимальными продажами (7)
-        int actual = service.MinSales(sales);
+        int actual = service.minSales(sales);
         assertEquals(expected, actual);
     }
 
